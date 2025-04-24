@@ -19,7 +19,7 @@ public class ProfessorController {
     @GetMapping
     public List<Professor> getAll(@RequestParam(required = false) String nomeProfessor){
         if (nomeProfessor != null && !nomeProfessor.isEmpty()){
-            return professorService.getAllByNome(nomeProfessor);
+            return professorService.getAllByNomeProfessor(nomeProfessor);
         }
         return professorService.getAllProfessor();
     }

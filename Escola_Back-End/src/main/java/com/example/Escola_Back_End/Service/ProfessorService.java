@@ -23,8 +23,8 @@ public class ProfessorService {
 
 
     //buscar os professores pelo nome
-    public List<Professor> getAllByNome(String nomeProfessor){
-        return professorRepository.findAllByNome(nomeProfessor);
+    public List<Professor> getAllByNomeProfessor(String nomeProfessor){
+        return professorRepository.findAllByNomeProfessor(nomeProfessor);
     }
 
 
