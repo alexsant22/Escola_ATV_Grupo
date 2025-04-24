@@ -1,6 +1,5 @@
 package com.example.Escola_Back_End.Service;
 
-import com.example.Escola_Back_End.DTO.ProfessorDTO;
 import com.example.Escola_Back_End.Dto.ProfessorDto;
 import com.example.Escola_Back_End.Entity.Professor;
 import com.example.Escola_Back_End.Repository.ProfessorRepository;
@@ -26,17 +25,17 @@ public class ProfessorService {
         return professorRepository.findAllByNomeProfessor(nomeProfessor);
     }
 
-    public Optional<ProfessorDTO> getById(Long id){
+    public Optional<ProfessorDto> getById(Long id){
         Optional<Professor> professorOptional = professorRepository.findById(id);
         if (professorOptional.isPresent()){
-            ProfessorDTO professorDTO = new ProfessorDTO();
+            ProfessorDto professorDTO = new ProfessorDto();
             return Optional.of(professorDTO.fromProfessor(professorOptional.get()));
         } else{
             return Optional.empty();
         }
     }
 
-    public ProfessorDTO createProfessor(ProfessorDTO professorDTO){
+    public ProfessorDto createProfessor(ProfessorDto professorDTO){
         Professor professor = professorDTO.toProfessor();
         professor = professorRepository.save(professor);
         return professorDTO.fromProfessor(professor);
