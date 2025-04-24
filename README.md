@@ -1,5 +1,12 @@
 # Escola
 
+## Integrantes
+
+- Abner Firmino
+- Alexandre Santos
+- Davi Mazoti
+- Gabriel Rodrigues
+
 ## Contexto
 
 O sistema é baseado em um sistema de uma escola, onde um professor pode lecionar em várias turmas e as turmas contêm vários alunos. Um aluno pode estar em apenas uma turma, e uma turma pode conter apenas um professor.
