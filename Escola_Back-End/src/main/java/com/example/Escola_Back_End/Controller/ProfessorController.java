@@ -34,7 +34,11 @@ public class ProfessorController {
     }
 
     @DeleteMapping("/{idProfessor}")
-    public ResponseEntity<Void> delete(@PathVariable Long id){
-        if ()
+    public ResponseEntity<Void> delete(@PathVariable Long idProfessor){
+        if (professorService.delete(idProfessor)){
+            return ResponseEntity.noContent().build();
+        } else{
+            return ResponseEntity.notFound().build();
+        }
     }
 }
