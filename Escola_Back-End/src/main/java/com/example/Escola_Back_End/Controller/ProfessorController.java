@@ -1,9 +1,7 @@
 package com.example.Escola_Back_End.Controller;
 
-import com.example.Escola_Back_End.DTO.ProfessorDTO;
 import com.example.Escola_Back_End.Service.ProfessorService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,6 +25,14 @@ public class ProfessorController {
         }
     }
 
+    @GetMapping
+    public List<Professor> getAll(@RequestParam(required = false) String nomeProfessor){
+        if (nomeProfessor != null && !nomeProfessor.isEmpty()){
+            return professorService.getAllByNomeProfessor(nomeProfessor);
+        }
+        return professorService.getAllProfessor();
+    }
+
     @PostMapping
     public ResponseEntity<ProfessorDTO> create(@RequestBody ProfessorDTO professorDTO){
         ProfessorDTO professorDTOSave = professorService.createProfessor(professorDTO);
@@ -40,5 +46,13 @@ public class ProfessorController {
         } else{
             return ResponseEntity.notFound().build();
         }
+    @PutMapping("/{idProfessor}")
+    public ResponseEntity<ProfessorDto> updateProfessor(@PathVariable Long idProfessor, @RequestBody ProfessorDto professorDto){
+        Optional<ProfessorDto> professorDtoOptional = professorService.updateProfessor(idProfessor, professorDto);
+         if (professorDtoOptional.isPresent()){
+             return ResponseEntity.ok(professorDtoOptional.get());
+         } else {
+             return ResponseEntity.notFound().build();
+         }
     }
 }
