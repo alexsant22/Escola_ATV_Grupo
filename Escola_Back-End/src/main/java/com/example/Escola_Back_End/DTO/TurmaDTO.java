@@ -1,11 +1,14 @@
 package com.example.Escola_Back_End.DTO;
 
+import com.example.Escola_Back_End.Entity.Aluno;
+import com.example.Escola_Back_End.Entity.Professor;
 import com.example.Escola_Back_End.Entity.Turma;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -15,14 +18,19 @@ public class TurmaDTO implements Serializable {
     private Long idTurma;
     private String sigla;
     private int numeroSala;
-    private String nomeSala;
+    private String nomeTurma;
+
+    private Professor professor;
+    private List<Aluno> alunos;
 
     public Turma toTurma() {
         return new Turma(
                 this.idTurma,
                 this.sigla,
                 this.numeroSala,
-                this.nomeSala
+                this.nomeTurma,
+                this.professor,
+                this.alunos
         );
     }
 
@@ -31,7 +39,9 @@ public class TurmaDTO implements Serializable {
                 turma.getIdTurma(),
                 turma.getSigla(),
                 turma.getNumeroSala(),
-                turma.getNomeSala()
+                turma.getNomeTurma(),
+                turma.getProfessor(),
+                turma.getAlunos()
         );
     }
 }
