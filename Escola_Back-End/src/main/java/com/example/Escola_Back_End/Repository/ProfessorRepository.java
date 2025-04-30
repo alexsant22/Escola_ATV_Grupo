@@ -8,3 +8,4 @@ import java.util.List;
 public interface ProfessorRepository extends JpaRepository<Professor, Long> {
     List<Professor> findAllByNomeProfessor(String nomeProfessor);
 }
+//davi-30/04

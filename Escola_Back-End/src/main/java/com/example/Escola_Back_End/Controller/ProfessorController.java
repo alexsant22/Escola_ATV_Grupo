@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.example.Escola_Back_End.Dto.ProfessorDto;
+import com.example.Escola_Back_End.DTO.ProfessorDto;
 
 import java.util.List;
 import java.util.Optional;
@@ -63,3 +63,4 @@ public class ProfessorController {
         }
     }
 }
+//davi-30/04

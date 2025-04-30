@@ -1,6 +1,6 @@
 package com.example.Escola_Back_End.Service;
 
-import com.example.Escola_Back_End.Dto.ProfessorDto;
+import com.example.Escola_Back_End.DTO.ProfessorDto;
 import com.example.Escola_Back_End.Entity.Professor;
 import com.example.Escola_Back_End.Repository.ProfessorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,3 +66,4 @@ public class ProfessorService {
         }
     }
 }
+//davi-30/04
