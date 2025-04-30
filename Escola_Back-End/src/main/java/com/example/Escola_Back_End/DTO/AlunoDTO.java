@@ -20,7 +20,7 @@ public class AlunoDTO implements Serializable {
     private String cpf;
 
     @JsonIgnore
-    private Turma turma
+    private Turma turma;
 
     public Aluno toAluno(){
         return new Aluno(
