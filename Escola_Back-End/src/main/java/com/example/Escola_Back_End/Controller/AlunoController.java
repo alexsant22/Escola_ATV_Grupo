@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping
+@RequestMapping("/aluno")
 public class AlunoController {
     @Autowired
     private AlunoService alunoService;
@@ -21,7 +21,7 @@ public class AlunoController {
     public List<Aluno> getAll(@RequestParam(required =  false)String cpf){
 
         if(cpf != null && !cpf.isEmpty()){
-            return alunoService.getAllByCpf(cpf);
+            return alunoService.getAllAlunosCPF(cpf);
         }else {
             return alunoService.getAll();
         }
