@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Data
@@ -18,5 +19,12 @@ public class Turma implements Serializable {
     @Column(unique = true)
     private String sigla;
     private int numeroSala;
-    private String nomeSala;
+    private String nomeTurma;
+
+    @ManyToOne
+    @JoinColumn(name = "idProfessor", referencedColumnName = "idProfessor")
+    private Professor professor;
+
+    @OneToMany(mappedBy = "turma")
+    private List<Aluno> alunos;
 }
