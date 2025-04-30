@@ -5,13 +5,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProfessorDTO implements Serializable {
-
+public class ProfessorDto {
     private Long idProfessor;
     private String nomeProfessor;
     private String sobrenome;
@@ -24,11 +21,12 @@ public class ProfessorDTO implements Serializable {
         );
     }
 
-    public ProfessorDTO fromProfessor(Professor professor){
-        return new ProfessorDTO(
+    public ProfessorDto fromProfessor(Professor professor){
+        return new ProfessorDto(
                 professor.getIdProfessor(),
                 professor.getNomeProfessor(),
                 professor.getSobrenome()
         );
     }
 }
+//davi-30/04
