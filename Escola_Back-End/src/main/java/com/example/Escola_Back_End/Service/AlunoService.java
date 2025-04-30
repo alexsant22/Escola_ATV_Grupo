@@ -7,7 +7,6 @@ import com.example.Escola_Back_End.Repository.AlunoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,8 +20,8 @@ public class AlunoService {
         return alunoRepository.findAll();
     }
 
-    public List<Aluno> getAllByCpf(String cpf){
-        return alunoRepository.findByCpf(cpf);
+    public List<Aluno> getAllAlunosCPF(String cpf){
+        return alunoRepository.findAllByCpf(cpf);
     }
 
     public Optional<AlunoDTO> getById(Long id){
@@ -41,6 +40,7 @@ public class AlunoService {
             Aluno aluno = alunoOptional.get();
             aluno.setNomeAluno(aluno.getNomeAluno());
             aluno.setCpf(aluno.getCpf());
+            aluno.setTurma(alunoDTO.getTurma());
 
             aluno = alunoRepository.save(aluno);
 
