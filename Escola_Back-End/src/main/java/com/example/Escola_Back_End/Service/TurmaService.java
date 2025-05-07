@@ -25,7 +25,7 @@ public class TurmaService {
     }
 
     public List<Turma> getAllTurmasByNome(String nome) {
-        return turmaRepository.getAllByNome(nome);
+        return turmaRepository.getAllByNomeTurma(nome);
     }
 
     public Optional<TurmaDTO> getById(Long id) {

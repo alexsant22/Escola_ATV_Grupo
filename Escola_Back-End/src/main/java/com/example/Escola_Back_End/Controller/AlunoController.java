@@ -37,7 +37,7 @@ public class AlunoController {
         }
     }
 
-    @PostMapping("/{id}")
+    @PostMapping
     public  ResponseEntity<AlunoDTO> create(@RequestBody AlunoDTO alunoDTO){
         AlunoDTO alunoDTOsave = alunoService.createAluno(alunoDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(alunoDTOsave);
