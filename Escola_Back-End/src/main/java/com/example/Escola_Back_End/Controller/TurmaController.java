@@ -12,20 +12,25 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/turma")
+@RequestMapping("/turma") //Anotação para definir uma rota
 public class TurmaController {
-    @Autowired
+    @Autowired //
     private TurmaService service;
 
-    @GetMapping("/buscar")
+    @GetMapping("/buscar") // Essa anotação define o end-point de busca, sem essa anotação não é possivel fazer uma busca
+    /*metodo getAll() do tipo List para retornar todas as turmas(objetos) que foram cadastradas,
+    * @RequestParam() - essa anotação permite fazer uma busca com algum parâmetro,
+    * (required = false) - se o "required" receber "false" significa que não será obrigatorio fazer a requisição com o parâmetro "nome" */
     public List<Turma> getAll(@RequestParam(required = false) String nome) {
+        // verificação: se o parâmetro nome for diferente de nulo
         if (nome != null && !nome.isEmpty()) {
+            // apos a verificação, se ela for verdadeira, retornará o metodo getAllTurmasByNome que foi feito na classe service, trazendo a(s) turma(s) que tem o nome requerido
             return service.getAllTurmasByNome(nome);
-        }
+        } // se a verificação for falsa, retorna todas as turmas, utilizando o metodo getAllTurmas
         return service.getAllTurmas();
     }
 
-    @GetMapping("/buscar/{id}")
+    @GetMapping("/buscar/{id}")// end-point de busca com o id do
     public ResponseEntity<TurmaDTO> getById(@PathVariable Long id) {
         Optional<TurmaDTO> optional = service.getById(id);
 
