@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@RestController
-@RequestMapping("/aluno")
-public class AlunoController {
-    @Autowired
-    private AlunoService alunoService;
+@RestController // É um componete controller por isso utilizamos essa anotação
+@RequestMapping("/aluno") // O '@RequesteMapping' é a anutação que define a baseURL da API
+public class AlunoController { // Classe Controller de Aluno
+    @Autowired // A injeção de dependencias e metodos de forma mais facilitada da Classe 'AlunoService'
+    private AlunoService alunoService; // Com a anotação acima fazemos a criação de um obj da Classe 'AlunoService' para manipulrmos de forma mais dinâmica os métodos dessa classe
 
-    @GetMapping
-    public List<Aluno> getAll(@RequestParam(required =  false)String cpf){
+    @GetMapping // Anotação do metodo 'GET' da API
+    public List<Aluno> getAll(@RequestParam(required =  false)String cpf){ //
 
         if(cpf != null && !cpf.isEmpty()){
             return alunoService.getAllAlunosCPF(cpf);

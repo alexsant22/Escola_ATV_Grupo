@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@RestController
-@RequestMapping("/turma")
-public class TurmaController {
-    @Autowired
-    private TurmaService service;
+@RestController // É um componete controller por isso utilizamos essa anotação
+@RequestMapping("/turma") // O '@RequesteMapping' é a anotação que define a baseURL da API
+public class TurmaController { // Classe Controller de Turma
+    @Autowired // A injeção de dependencias e metodos de forma mais facilitada da Classe 'TurmaService'
+    private TurmaService service; // Com a anotação acima fazemos a criação de um obj da Classe 'TurmaService' para manipulrmos de forma mais dinâmica os métodos dessa classe
 
     @GetMapping("/buscar")
     public List<Turma> getAll(@RequestParam(required = false) String nome) {
